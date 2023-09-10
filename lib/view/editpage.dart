@@ -36,51 +36,49 @@ class _EditPageState extends State<EditPage> {
       body: Container(
         height: screenHeight,
         padding: const EdgeInsets.all(16.0),
-        child: Expanded(
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                TextField(
-                  controller: fullNameController,
-                  decoration: InputDecoration(labelText: 'Full Name'),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              TextField(
+                controller: fullNameController,
+                decoration: InputDecoration(labelText: 'Full Name'),
+              ),
+              TextField(
+                controller: slackUsernameController,
+                decoration: InputDecoration(labelText: 'Slack Username'),
+              ),
+              TextField(
+                controller: gitHubHandleController,
+                decoration: InputDecoration(labelText: 'GitHub Handle'),
+              ),
+              Container(
+                height: 200,
+                child: TextField(
+                  controller: bioController,
+                  decoration: InputDecoration(labelText: 'Bio'),
+                  maxLines: null,
+                  maxLength: 2000,
                 ),
-                TextField(
-                  controller: slackUsernameController,
-                  decoration: InputDecoration(labelText: 'Slack Username'),
-                ),
-                TextField(
-                  controller: gitHubHandleController,
-                  decoration: InputDecoration(labelText: 'GitHub Handle'),
-                ),
-                Container(
-                  height: 200,
-                  child: TextField(
-                    controller: bioController,
-                    decoration: InputDecoration(labelText: 'Bio'),
-                    maxLines: null,
-                    maxLength: 2000,
-                  ),
-                ),
-                SizedBox(height: 20),
-                ElevatedButton(
-                  onPressed: () {
-                    // Update CVData with new values
-                    widget.cvData.fullName = fullNameController.text;
-                    widget.cvData.slackUsername = slackUsernameController.text;
-                    widget.cvData.gitHubHandle = gitHubHandleController.text;
-                    widget.cvData.bio = bioController.text;
+              ),
+              SizedBox(height: 20),
+              ElevatedButton(
+                onPressed: () {
+                  // Update CVData with new values
+                  widget.cvData.fullName = fullNameController.text;
+                  widget.cvData.slackUsername = slackUsernameController.text;
+                  widget.cvData.gitHubHandle = gitHubHandleController.text;
+                  widget.cvData.bio = bioController.text;
 
-                    // Call the onSave callback to pass the updated data back to the homepage
-                    widget.onSave(widget.cvData);
+                  // Call the onSave callback to pass the updated data back to the homepage
+                  widget.onSave(widget.cvData);
 
-                    // Navigate back to the CV viewing screen
-                    Navigator.pop(context);
-                  },
-                  child: Text('Save'),
-                ),
-              ],
-            ),
+                  // Navigate back to the CV viewing screen
+                  Navigator.pop(context);
+                },
+                child: Text('Save'),
+              ),
+            ],
           ),
         ),
       ),
