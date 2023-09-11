@@ -25,8 +25,18 @@ class _HomePageState extends State<HomePage> {
           height: screenHeight,
           padding: const EdgeInsets.all(16.0),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
+              ClipOval(
+                child: Container(
+                  height: 200,
+                  width: 200,
+                  child: Image.asset(
+                    "assets/pics.jpg",
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              ),
               SizedBox(
                 height: screenHeight * 0.02,
               ),
