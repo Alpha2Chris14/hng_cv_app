@@ -27,16 +27,6 @@ class _HomePageState extends State<HomePage> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              // ClipOval(
-              //   child: Container(
-              //     height: 200,
-              //     width: 200,
-              //     child: Image.asset(
-              //       "assets/pics.jpg",
-              //       fit: BoxFit.cover,
-              //     ),
-              //   ),
-              // ),
               SizedBox(
                 height: screenHeight * 0.02,
               ),
